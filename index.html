@@ -8,7 +8,87 @@
   <meta name="theme-color" content="#0b4da2" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="manifest" href="manifest.json" />
+  <script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+</script>
+
   <style>
+    .navbar {
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+  max-width:1100px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-weight:bold;
+  font-size:20px;
+  color:#0b4da2;
+}
+
+.nav-links {
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+.nav-links a {
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+}
+
+.nav-links a:hover {
+  color:#0b4da2;
+}
+
+.nav-cta {
+  background:#0b4da2;
+  color:#fff !important;
+  padding:8px 16px;
+  border-radius:20px;
+}
+
+.menu-toggle {
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+@media (max-width:768px) {
+  .nav-links {
+    position:absolute;
+    top:65px;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    display:none;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.show {
+    display:flex;
+  }
+
+  .menu-toggle {
+    display:block;
+  }
+}
+
     body {font-family: Arial, sans-serif; margin:0; background:#f5f7fa; color:#333;}
     header {background:#0b4da2; color:#fff; padding:40px 20px; text-align:center;}
     section {padding:40px 20px; max-width:1100px; margin:auto;}
@@ -24,6 +104,21 @@
   </style>
 </head>
 <body>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">School Transport</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#routes">Routes & Pricing</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="https://wa.me/254721657297" target="_blank">WhatsApp</a></li>
+    </ul>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </div>
+</nav>
 
 <header>
   <h1>Safe & Reliable School Transport</h1>
